@@ -12,7 +12,7 @@ export default function ColorGradeCompare() {
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
-    const percent = Math.max(5, Math.min(95, (x / rect.width) * 100));
+    const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
     setSliderPosition(percent);
   };
 
@@ -35,7 +35,7 @@ export default function ColorGradeCompare() {
       }}
     >
       <div className="container">
-        <div style={{ textAlign: "center", maxWidth: "780px", margin: "0 auto 40px" }}>
+        <div style={{ textAlign: "center", maxWidth: "780px", margin: "0 auto 36px" }}>
           <div className="section-badge">
             <Sliders size={14} />
             Post-Produzione &bull; Color Grading Cinema
@@ -49,6 +49,71 @@ export default function ColorGradeCompare() {
           </p>
         </div>
 
+        {/* Permanent Top Comparison HUD Bar - Text Width NEVER changes */}
+        <div
+          style={{
+            maxWidth: "1060px",
+            margin: "0 auto 14px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: "16px",
+            flexWrap: "wrap",
+          }}
+        >
+          {/* Left Label: RAW Flat */}
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "8px 16px",
+              borderRadius: "8px",
+              backgroundColor: "var(--bg-card)",
+              border: "1px solid var(--border-subtle)",
+              color: "var(--text-white)",
+              fontSize: "0.85rem",
+              fontWeight: 700,
+              whiteSpace: "nowrap",
+            }}
+          >
+            <Eye size={16} color="var(--color-gray-subtle)" />
+            <span>RAW / S-LOG3 FLAT (RIPRESA SENSORE)</span>
+          </div>
+
+          <span
+            style={{
+              fontSize: "0.8rem",
+              color: "var(--color-gray-subtle)",
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+              fontWeight: 600,
+            }}
+          >
+            Trascina per confrontare
+          </span>
+
+          {/* Right Label: Cinema Grade */}
+          <div
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              padding: "8px 16px",
+              borderRadius: "8px",
+              backgroundColor: "var(--color-orange-subtle)",
+              border: "1px solid var(--color-orange-border)",
+              color: "var(--color-orange)",
+              fontSize: "0.85rem",
+              fontWeight: 700,
+              whiteSpace: "nowrap",
+            }}
+          >
+            <Sparkles size={16} color="var(--color-orange)" />
+            <span>FINAL CINEMA GRADE (DAVINCI RESOLVE / ACES)</span>
+          </div>
+        </div>
+
         {/* Split Comparison Interactive Container */}
         <div
           ref={containerRef}
@@ -59,7 +124,7 @@ export default function ColorGradeCompare() {
             width: "100%",
             maxWidth: "1060px",
             aspectRatio: "21 / 10",
-            minHeight: "300px",
+            minHeight: "320px",
             margin: "0 auto",
             borderRadius: "16px",
             overflow: "hidden",
@@ -69,99 +134,46 @@ export default function ColorGradeCompare() {
             userSelect: "none",
           }}
         >
-          {/* Base: Graded Master */}
-          <div style={{ position: "absolute", inset: 0 }}>
+          {/* Base Layer: Graded Master */}
+          <div style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}>
             <Image
               src="/images/projects/samuel-costa.webp"
-              alt="DaVinci Resolve Final Master"
+              alt="DaVinci Resolve Final Cinema Grade"
               fill
               style={{ objectFit: "cover" }}
               sizes="(max-width: 1200px) 100vw, 1060px"
+              draggable={false}
+              priority
             />
-            {/* Graded Label */}
-            <div
-              style={{
-                position: "absolute",
-                top: "20px",
-                right: "20px",
-                background: "rgba(12, 12, 14, 0.85)",
-                border: "1px solid var(--color-orange-border)",
-                color: "var(--color-orange)",
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                padding: "6px 14px",
-                borderRadius: "6px",
-                backdropFilter: "blur(10px)",
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-              }}
-            >
-              <Sparkles size={14} />
-              FINAL CINEMA GRADE (ACES)
-            </div>
           </div>
 
-          {/* Overlay: LOG / RAW Flat Image */}
+          {/* Top Layer: LOG / RAW Flat Image clipped with clip-path (NEVER resizes or squishes) */}
           <div
             style={{
               position: "absolute",
-              top: 0,
-              left: 0,
-              bottom: 0,
-              width: `${sliderPosition}%`,
-              overflow: "hidden",
-              borderRight: "2px solid #ffffff",
+              inset: 0,
+              width: "100%",
+              height: "100%",
+              clipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`,
+              WebkitClipPath: `polygon(0 0, ${sliderPosition}% 0, ${sliderPosition}% 100%, 0 100%)`,
+              pointerEvents: "none",
             }}
           >
-            <div
+            <Image
+              src="/images/projects/samuel-costa.webp"
+              alt="Camera RAW Log Flat Footage"
+              fill
               style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: containerRef.current
-                  ? `${containerRef.current.clientWidth}px`
-                  : "100%",
-                height: "100%",
+                objectFit: "cover",
+                filter: "saturate(0.18) contrast(0.68) brightness(1.22)",
               }}
-            >
-              <Image
-                src="/images/projects/samuel-costa.webp"
-                alt="Camera RAW Log Flat Footage"
-                fill
-                style={{
-                  objectFit: "cover",
-                  filter: "saturate(0.2) contrast(0.65) brightness(1.2)",
-                }}
-                sizes="(max-width: 1200px) 100vw, 1060px"
-              />
-            </div>
-
-            {/* RAW Log Label */}
-            <div
-              style={{
-                position: "absolute",
-                top: "20px",
-                left: "20px",
-                background: "rgba(12, 12, 14, 0.85)",
-                border: "1px solid var(--border-subtle)",
-                color: "var(--text-white)",
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                padding: "6px 14px",
-                borderRadius: "6px",
-                backdropFilter: "blur(10px)",
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-              }}
-            >
-              <Eye size={14} />
-              RAW / S-LOG3 FLAT
-            </div>
+              sizes="(max-width: 1200px) 100vw, 1060px"
+              draggable={false}
+              priority
+            />
           </div>
 
-          {/* Central Handle Slider */}
+          {/* Central Handle Slider Separator */}
           <div
             style={{
               position: "absolute",
@@ -169,9 +181,9 @@ export default function ColorGradeCompare() {
               bottom: 0,
               left: `${sliderPosition}%`,
               transform: "translateX(-50%)",
-              width: "4px",
+              width: "3px",
               backgroundColor: "#ffffff",
-              boxShadow: "0 0 16px rgba(0, 0, 0, 0.8)",
+              boxShadow: "0 0 12px rgba(0, 0, 0, 0.9)",
               pointerEvents: "none",
               display: "flex",
               alignItems: "center",
@@ -180,18 +192,18 @@ export default function ColorGradeCompare() {
           >
             <div
               style={{
-                width: "36px",
-                height: "36px",
+                width: "40px",
+                height: "40px",
                 borderRadius: "50%",
                 backgroundColor: "#ffffff",
-                boxShadow: "0 4px 14px rgba(0,0,0,0.6)",
+                boxShadow: "0 4px 16px rgba(0,0,0,0.7)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 color: "var(--color-gray-dark)",
               }}
             >
-              <Sliders size={16} />
+              <Sliders size={18} />
             </div>
           </div>
         </div>

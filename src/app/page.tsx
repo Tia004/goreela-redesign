@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import ColorGradeCompare from "@/components/ColorGradeCompare";
 import WorksSlider from "@/components/WorksSlider";
 import ProductionProcess from "@/components/ProductionProcess";
@@ -16,26 +17,27 @@ import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import ProjectModal, { Project } from "@/components/ProjectModal";
 
-// Default Showreel case study object
+// Official Real Showreel from goreela.it (YouTube ID: Y4l3XmXVVIA)
 const showreelProject: Project = {
-  id: "showreel-2026",
-  title: "GOREELA SHOWREEL 2026",
-  subtitle: "The Wildest Storytellers Master Reel",
+  id: "showreel-official",
+  title: "GOREELA SHOWREEL 2024",
+  subtitle: "In 16:9, perché abbiamo fatto troppe cose in verticale!",
   category: "Showreel Ufficiale",
   client: "Goreela Videomaking Studio",
-  year: "2026",
-  duration: "02:18",
+  year: "2024",
+  duration: "02:15",
   image: "/images/projects/highsnob-kintsugi.webp",
-  aspectRatio: "2.39:1 CinemaScope",
-  camera: "RED Gemini 5K & Sony FX9 CineAlta",
+  youtubeId: "Y4l3XmXVVIA",
+  aspectRatio: "16:9 DCI Cinema",
+  camera: "Sony FX9 CineAlta & RED Gemini 5K",
   lenses: "Atlas Orion Anamorphic & Zeiss Supreme Primes",
-  role: "Direzione Creativa, Regia, Montaggio, Color Grading & Sound Design",
+  role: "Regia, Direzione della Fotografia, Montaggio, Color Grading & Sound",
   synopsis:
-    "Una sintesi ad alto impatto dei migliori progetti realizzati in tutta Italia: videoclip musicali di artisti di primo piano, spot commerciali per marchi d'eccellenza, riprese backstage alle Fashion Week di Milano e Parigi, e branded content industriale.",
+    "Il metodo più efficace per raccontarsi è una produzione video. Con Goreela Videomaking Studio puoi concentrarti sul tuo progetto, a farti conoscere ci pensiamo noi. Il nostro showreel raccoglie il meglio dei videoclip musicali, spot TV e campagne internazionali girate in tutta Italia.",
   deliverables: [
     "Master 4K DCI Apple ProRes 4444 XQ",
-    "Audio Mix Cinema 5.1 Surround & Stereo Master",
-    "Versione Verticale 9:16 per Distribuzione Social",
+    "Audio Mix Cinema Stereo & 5.1 Surround",
+    "Formato Widescreen 16:9 & Cutdown 9:16 Social",
     "Color Grade ACES DaVinci Resolve Studio",
   ],
 };
@@ -50,21 +52,24 @@ export default function Home() {
   const handleToggleSound = () => {
     if (isMuted) {
       try {
-        const AudioCtx = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+        const AudioCtx =
+          window.AudioContext ||
+          (window as unknown as { webkitAudioContext: typeof AudioContext })
+            .webkitAudioContext;
         if (AudioCtx) {
           const ctx = new AudioCtx();
           audioContextRef.current = ctx;
           const osc = ctx.createOscillator();
           const gain = ctx.createGain();
           osc.type = "sine";
-          osc.frequency.setValueAtTime(110, ctx.currentTime); // Low A ambient drone
+          osc.frequency.setValueAtTime(110, ctx.currentTime);
           gain.gain.setValueAtTime(0.015, ctx.currentTime);
           osc.connect(gain);
           gain.connect(ctx.destination);
           osc.start();
         }
       } catch {
-        // Fallback gracefully
+        // Fallback
       }
       setIsMuted(false);
     } else {
@@ -82,9 +87,13 @@ export default function Home() {
 
   return (
     <>
+      {/* React Bits Style Interactive Canvas Background */}
+      <AnimatedBackground />
+
+      {/* Sticky Glassmorphic Navbar */}
       <Navbar isMuted={isMuted} onToggleSound={handleToggleSound} />
 
-      <main id="main-content">
+      <main id="main-content" style={{ position: "relative", zIndex: 1 }}>
         {/* 1. Cinematic Hero Section */}
         <Hero onOpenReel={() => setShowreelOpen(true)} />
 
@@ -97,10 +106,10 @@ export default function Home() {
         {/* 4. Il Processo di Produzione Video (estratto da goreela.it) */}
         <ProductionProcess />
 
-        {/* 5. Sezione Studio 170mq */}
+        {/* 5. Sezione Studio 170mq (Solo foto delle sale dello studio) */}
         <StudioSection />
 
-        {/* 6. Sezione Team Troupe Cinematografica */}
+        {/* 6. Sezione Team Troupe (I 5 veri professionisti di Goreela) */}
         <TeamSection />
 
         {/* 7. Slider dei Clienti con Loghi e Recensioni */}
@@ -122,7 +131,7 @@ export default function Home() {
       {/* 12. Gestione Consenso Cookie GDPR */}
       <CookieBanner />
 
-      {/* Showreel Lightbox Modal */}
+      {/* Real Showreel 2024 Lightbox Modal */}
       {showreelOpen && (
         <ProjectModal
           project={showreelProject}

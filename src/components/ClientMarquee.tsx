@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Star, Quote, Building, CheckCircle2, ShieldCheck } from "lucide-react";
+import { Star, Building } from "lucide-react";
 
 export default function ClientMarquee() {
   const clientLogos = [
@@ -27,7 +27,7 @@ export default function ClientMarquee() {
     },
     {
       quote:
-        "Precisione tecnica impeccabile e un montaggio dinamico che ha saputo spiegare la nostra tecnologia in composito 3D in modo chiaro e spettacolare per le fiere europee.",
+        "Precisione svizzera, creatività esplosiva e un montaggio dinamico che ha saputo spiegare la nostra tecnologia in composito 3D in modo chiaro e spettacolare per le fiere europee.",
       author: "9T Labs (Zurigo)",
       role: "Head of Communications",
       project: "Corporate Video & Fair Campaign",
@@ -78,7 +78,6 @@ export default function ClientMarquee() {
           }}
         >
           <div className="marquee-track">
-            {/* Duplicated for seamless infinite looping */}
             {[...clientLogos, ...clientLogos, ...clientLogos].map((c, i) => (
               <div
                 key={i}
@@ -100,6 +99,7 @@ export default function ClientMarquee() {
                     alt={c.name}
                     fill
                     style={{ objectFit: "contain" }}
+                    draggable={false}
                   />
                 </div>
               </div>
@@ -132,7 +132,6 @@ export default function ClientMarquee() {
               className="testimonial-card"
             >
               <div>
-                {/* 5 Stars Rating Bar */}
                 <div style={{ display: "flex", gap: "4px", marginBottom: "16px", color: "var(--color-orange)" }}>
                   {[...Array(5)].map((_, starIdx) => (
                     <Star key={starIdx} size={15} fill="currentColor" />

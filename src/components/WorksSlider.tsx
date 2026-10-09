@@ -6,9 +6,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Play,
-  Eye,
-  Sliders,
-  Sparkles,
   Camera,
   Film,
 } from "lucide-react";
@@ -18,12 +15,13 @@ const projectsData: Project[] = [
   {
     id: "highsnob-kintsugi",
     title: "HIGHSNOB – Kintsugi",
-    subtitle: "Videoclip Musicale Ufficiale",
+    subtitle: "Videoclip Musicale Ufficiale (Warner Music)",
     category: "Videoclip Musicali",
     client: "Warner Music / Highsnob",
     year: "2024",
     duration: "03:22",
     image: "/images/projects/highsnob-kintsugi.webp",
+    youtubeId: "phYBY4ZGfKo",
     aspectRatio: "2.39:1 CinemaScope",
     camera: "Sony FX9 CineAlta Full-Frame 6K",
     lenses: "Zeiss Supreme Prime 25/50/85mm",
@@ -46,6 +44,7 @@ const projectsData: Project[] = [
     year: "2023",
     duration: "02:54",
     image: "/images/projects/samuel-costa.webp",
+    youtubeId: "v-KmI_zG0mo",
     aspectRatio: "16:9 DCI Cinema",
     camera: "RED Gemini 5K S35 Dual ISO",
     lenses: "Atlas Orion Anamorphic 2x Lenses",
@@ -62,12 +61,13 @@ const projectsData: Project[] = [
   {
     id: "without-production-fw",
     title: "Without Production – Milan & Paris FW",
-    subtitle: "Fashion Editorial & Runway Film",
+    subtitle: "Fashion Editorial & Runway Film SS24",
     category: "Fashion & Eventi",
     client: "Without Production",
     year: "2024",
     duration: "01:45",
     image: "/images/projects/fashion-week.webp",
+    youtubeId: "itVa0LGzy7E",
     aspectRatio: "9:16 Vertical & 16:9 Cinema",
     camera: "Sony FX6 & Gimbal Ronin RS3 Pro",
     lenses: "Sony G-Master 24-70mm f/2.8 II & 50mm f/1.2",
@@ -82,25 +82,26 @@ const projectsData: Project[] = [
     ],
   },
   {
-    id: "italcaffe-1969",
-    title: "Italcaffè 1969 – Heritage & Aroma",
-    subtitle: "Commercial & Spot Pubblicitario Brand",
-    category: "Spot Pubblicitari",
-    client: "Italcaffè S.p.A.",
-    year: "2023",
-    duration: "01:10",
-    image: "/images/projects/italcaffe.webp",
-    aspectRatio: "16:9 4K UHD",
-    camera: "Sony FX9 + Macro Probe Laowa 24mm",
-    lenses: "Laowa 24mm f/14 2X Macro Probe + Sigma Cine",
-    role: "Concept, Food Styling, Riprese Macro ad Alta Velocità, Color",
+    id: "irene-effe-stanze",
+    title: "Irene Effe – Stanze",
+    subtitle: "Videoclip Musicale Coreografico",
+    category: "Videoclip Musicali",
+    client: "Irene Effe (Irene Fornaciari)",
+    year: "2024",
+    duration: "03:40",
+    image: "/images/projects/irene-effe.webp",
+    youtubeId: "bbc_dp2B2dc",
+    aspectRatio: "2.0:1 Univisium",
+    camera: "Sony FX9 Cinema Full-Frame",
+    lenses: "Carl Zeiss Master Prime Lenses",
+    role: "Regia, Coreografia Luci Teatrali, Post-Produzione",
     synopsis:
-      "Lo storytelling di oltre cinquant'anni di passione per il caffè tostato a legna. Dettagli macro ultra-ravvicinati sui chicchi di caffè, vapore in slow motion e la perfetta cremosità della tazza d'espresso.",
+      "Una performance intima costruita attorno alla voce e al movimento, ambientata in spazi minimalisti dove i fasci di luce disegnano stanze immaginarie della mente. Premiato dalla critica per la ricerca fotografica.",
     deliverables: [
-      "Spot TV / Cinema 60s & 30s",
-      "Formati Social 1:1 e 9:16",
-      "Audio Voiceover Multilingua (ITA/ENG)",
-      "Sound Design Frequenze Tazze e Chicchi",
+      "Master Ufficiale Vevo / YouTube 4K",
+      "Stills Fotografici per Rassegna Stampa Nazionale",
+      "Clip Verticali 9:16 con Testo Sincronizzato",
+      "Mix Audio Dolby Atmos e Stereo PCM",
     ],
   },
   {
@@ -112,6 +113,7 @@ const projectsData: Project[] = [
     year: "2024",
     duration: "02:15",
     image: "/images/projects/essentiae-lunae.webp",
+    youtubeId: "El1lSw82_pE",
     aspectRatio: "2.39:1 CinemaScope",
     camera: "ARRI Alexa Mini / Cooke Speed Panchro",
     lenses: "Cooke Speed Panchro Vintage 1950s Glass",
@@ -126,25 +128,26 @@ const projectsData: Project[] = [
     ],
   },
   {
-    id: "irene-effe-stanze",
-    title: "Irene Effe – Stanze",
-    subtitle: "Videoclip Musicale Coreografico",
-    category: "Videoclip Musicali",
-    client: "Irene Effe (Irene Fornaciari)",
+    id: "9t-labs-composite",
+    title: "9T Labs – Swiss Advanced Tech",
+    subtitle: "Corporate & Global Fair Campaign",
+    category: "Spot Pubblicitari",
+    client: "9T Labs (Zurigo)",
     year: "2024",
-    duration: "03:40",
-    image: "/images/projects/irene-effe.webp",
-    aspectRatio: "2.0:1 Univisium",
-    camera: "Sony FX9 Cinema Full-Frame",
-    lenses: "Carl Zeiss Master Prime Lenses",
-    role: "Regia, Coreografia Luci Teatrali, Post-Produzione",
+    duration: "01:30",
+    image: "/images/projects/italcaffe.webp",
+    youtubeId: "BY7OFnP4BCQ",
+    aspectRatio: "16:9 4K UHD",
+    camera: "Sony FX9 + Macro Probe Laowa 24mm",
+    lenses: "Laowa 24mm f/14 2X Macro Probe + Sigma Cine",
+    role: "Concept, Riprese Tecniche ad Alta Velocità, 3D Compositing, Color",
     synopsis:
-      "Una performance intima costruita attorno alla voce e al movimento, ambientata in spazi minimalisti dove i fasci di luce disegnano stanze immaginarie della mente. Premiato dalla critica per la ricerca fotografica.",
+      "Produzione video per raccontare quello che spiegheresti con presentazioni da decine di pagine. Un video corporate d'impatto per attirare l'attenzione di colossi aerospaziali e automotive durante le fiere mondiali.",
     deliverables: [
-      "Master Ufficiale Vevo / YouTube 4K",
-      "Stills Fotografici per Rassegna Stampa Nazionale",
-      "Clip Verticali 9:16 con Testo Sincronizzato",
-      "Mix Audio Dolby Atmos e Stereo PCM",
+      "Fair Video Loop per Maxi-Schermi",
+      "Social Cuts 1:1 e 9:16 per LinkedIn",
+      "Audio Voiceover Multilingua (ITA/ENG/GER)",
+      "Motion graphics 3D e render fotorealistici",
     ],
   },
 ];
@@ -160,30 +163,15 @@ export default function WorksSlider() {
   const [activeCategory, setActiveCategory] = useState("Tutti");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [isAutoplay, setIsAutoplay] = useState(false);
-  const timerRef = useRef<NodeJS.Timeout | null>(null);
 
   const filteredProjects =
     activeCategory === "Tutti"
       ? projectsData
       : projectsData.filter((p) => p.category === activeCategory);
 
-  // Reset index when category changes
   useEffect(() => {
     setCurrentIndex(0);
   }, [activeCategory]);
-
-  // Autoplay handler
-  useEffect(() => {
-    if (isAutoplay && filteredProjects.length > 1) {
-      timerRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % filteredProjects.length);
-      }, 5000);
-    }
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [isAutoplay, filteredProjects.length]);
 
   const handlePrev = () => {
     setCurrentIndex((prev) =>
@@ -221,14 +209,14 @@ export default function WorksSlider() {
           <div>
             <div className="section-badge">
               <Film size={14} />
-              Portfolio Selezionato &bull; Showroom Lavori
+              Portfolio Reale &bull; Produzioni Ufficiali
             </div>
             <h2 className="section-title" style={{ marginBottom: "12px" }}>
               I nostri progetti <span className="highlight">più recenti</span>.
             </h2>
             <p className="section-subtitle" style={{ marginBottom: 0 }}>
-              Ogni produzione è un viaggio su misura. Esplora le opere che hanno
-              definito il nostro standard visivo.
+              Clicca su qualsiasi progetto per avviare il video reale in alta definizione
+              e consultare la scheda tecnica dettagliata.
             </p>
           </div>
 
@@ -359,6 +347,7 @@ export default function WorksSlider() {
                 transition: "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
               }}
               className="slider-main-img"
+              draggable={false}
               priority
             />
 
@@ -368,7 +357,7 @@ export default function WorksSlider() {
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(180deg, rgba(12,12,14,0.1) 0%, rgba(12,12,14,0.4) 50%, rgba(12,12,14,0.92) 100%)",
+                  "linear-gradient(180deg, rgba(12,12,14,0.1) 0%, rgba(12,12,14,0.4) 50%, rgba(12,12,14,0.94) 100%)",
               }}
             />
 
@@ -379,7 +368,7 @@ export default function WorksSlider() {
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                backgroundColor: "rgba(255, 85, 5, 0.9)",
+                backgroundColor: "rgba(255, 85, 5, 0.95)",
                 backdropFilter: "blur(10px)",
                 color: "#ffffff",
                 padding: "14px 28px",
@@ -390,13 +379,12 @@ export default function WorksSlider() {
                 fontWeight: 700,
                 fontSize: "0.95rem",
                 boxShadow: "0 10px 30px var(--color-orange-glow)",
-                opacity: 0.95,
                 transition: "var(--transition-smooth)",
               }}
               className="center-play-pill"
             >
               <Play size={18} fill="#ffffff" />
-              Apri Scheda & Video Progetto
+              Guarda il Video Ufficiale
             </div>
 
             {/* Bottom Meta Information Details */}
@@ -443,7 +431,7 @@ export default function WorksSlider() {
                       color: "var(--color-gray-subtle)",
                     }}
                   >
-                    {currentProject.client} &bull; {currentProject.year}
+                    {currentProject.client} &bull; {currentProject.year} &bull; {currentProject.duration}
                   </span>
                 </div>
 
@@ -506,7 +494,6 @@ export default function WorksSlider() {
 
         {/* Slider Bottom Progress Track & Thumbnails Grid */}
         <div style={{ marginTop: "24px" }}>
-          {/* Progress Bar */}
           <div
             style={{
               width: "100%",
@@ -527,7 +514,6 @@ export default function WorksSlider() {
             />
           </div>
 
-          {/* Mini Thumbnails Selector Strip */}
           <div
             style={{
               display: "grid",
@@ -560,6 +546,7 @@ export default function WorksSlider() {
                   alt={p.title}
                   fill
                   style={{ objectFit: "cover" }}
+                  draggable={false}
                 />
               </button>
             ))}
@@ -567,7 +554,7 @@ export default function WorksSlider() {
         </div>
       </div>
 
-      {/* Lightbox Case Study Modal */}
+      {/* Lightbox Real Video Case Study Modal */}
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}

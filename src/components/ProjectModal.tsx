@@ -1,11 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 import {
   X,
   Play,
-  Pause,
   Film,
   Camera,
   Award,
@@ -23,6 +22,7 @@ export interface Project {
   year: string;
   duration: string;
   image: string;
+  youtubeId: string;
   aspectRatio: string;
   camera: string;
   lenses: string;
@@ -37,9 +37,6 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [progress, setProgress] = useState(24);
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -59,7 +56,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         position: "fixed",
         inset: 0,
         zIndex: 2000,
-        backgroundColor: "rgba(8, 8, 10, 0.92)",
+        backgroundColor: "rgba(8, 8, 10, 0.94)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
         display: "flex",
@@ -74,12 +71,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         style={{
           position: "relative",
           width: "100%",
-          maxWidth: "960px",
+          maxWidth: "1020px",
           backgroundColor: "var(--bg-surface)",
           border: "1px solid var(--border-card)",
           borderRadius: "16px",
           overflow: "hidden",
-          boxShadow: "0 30px 80px rgba(0, 0, 0, 0.9)",
+          boxShadow: "0 30px 80px rgba(0, 0, 0, 0.95)",
           margin: "auto",
         }}
         onClick={(e) => e.stopPropagation()}
@@ -95,7 +92,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             backgroundColor: "var(--bg-black)",
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap" }}>
             <span
               style={{
                 fontSize: "0.78rem",
@@ -111,7 +108,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               {project.category}
             </span>
             <span style={{ fontSize: "0.9rem", color: "var(--color-gray-subtle)" }}>
-              {project.client} &bull; {project.year}
+              {project.client} &bull; {project.year} &bull; {project.duration}
             </span>
           </div>
 
@@ -119,8 +116,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             onClick={onClose}
             aria-label="Chiudi finestra modale del progetto"
             style={{
-              width: "36px",
-              height: "36px",
+              width: "38px",
+              height: "38px",
               borderRadius: "8px",
               display: "flex",
               alignItems: "center",
@@ -128,13 +125,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               color: "var(--text-white)",
               background: "var(--bg-card)",
               border: "1px solid var(--border-card)",
+              cursor: "pointer",
             }}
           >
             <X size={18} />
           </button>
         </div>
 
-        {/* Video Player Showcase Screen */}
+        {/* Real YouTube Video Player Screen */}
         <div
           style={{
             position: "relative",
@@ -144,146 +142,63 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             overflow: "hidden",
           }}
         >
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
+          <iframe
+            src={`https://www.youtube-nocookie.com/embed/${project.youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+            title={project.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
             style={{
-              objectFit: "cover",
-              filter: isPlaying ? "none" : "brightness(0.85)",
+              width: "100%",
+              height: "100%",
+              border: "none",
+              display: "block",
             }}
           />
-
-          {/* Simulation Overlay Controls */}
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              padding: "20px",
-              background: isPlaying
-                ? "transparent"
-                : "linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%)",
-            }}
-          >
-            <div />
-
-            {/* Play Button Trigger */}
-            <div style={{ display: "flex", justifyContent: "center" }}>
-              <button
-                onClick={() => setIsPlaying(!isPlaying)}
-                aria-label={isPlaying ? "Metti in pausa video" : "Riproduci video"}
-                style={{
-                  width: "68px",
-                  height: "68px",
-                  borderRadius: "50%",
-                  backgroundColor: "var(--color-orange)",
-                  color: "#ffffff",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  boxShadow: "0 0 30px var(--color-orange-glow)",
-                  cursor: "pointer",
-                  transition: "var(--transition-smooth)",
-                }}
-              >
-                {isPlaying ? (
-                  <Pause size={28} />
-                ) : (
-                  <Play size={28} fill="#ffffff" style={{ marginLeft: "3px" }} />
-                )}
-              </button>
-            </div>
-
-            {/* Video Timeline & Bottom Bar */}
-            <div
-              style={{
-                background: "rgba(12, 12, 14, 0.8)",
-                backdropFilter: "blur(10px)",
-                padding: "10px 16px",
-                borderRadius: "8px",
-                border: "1px solid var(--border-subtle)",
-              }}
-            >
-              {/* Progress Scrubber */}
-              <div
-                style={{
-                  width: "100%",
-                  height: "4px",
-                  backgroundColor: "rgba(255,255,255,0.2)",
-                  borderRadius: "2px",
-                  marginBottom: "8px",
-                  position: "relative",
-                  cursor: "pointer",
-                }}
-                onClick={(e) => {
-                  const rect = e.currentTarget.getBoundingClientRect();
-                  const pct = ((e.clientX - rect.left) / rect.width) * 100;
-                  setProgress(Math.round(pct));
-                }}
-              >
-                <div
-                  style={{
-                    width: `${progress}%`,
-                    height: "100%",
-                    backgroundColor: "var(--color-orange)",
-                    borderRadius: "2px",
-                  }}
-                />
-              </div>
-
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  fontSize: "0.8rem",
-                  color: "var(--text-soft)",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <span>01:14 / {project.duration}</span>
-                  <span style={{ color: "var(--color-gray-subtle)" }}>&bull;</span>
-                  <span style={{ color: "var(--color-orange)", fontWeight: 700 }}>
-                    4K DCI MASTER
-                  </span>
-                </div>
-                <span>{project.aspectRatio}</span>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Project Detailed Sheet */}
-        <div style={{ padding: "32px", maxHeight: "40vh", overflowY: "auto" }}>
-          <h2
-            id="modal-title"
-            style={{
-              fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
-              marginBottom: "8px",
-            }}
-          >
-            {project.title}
-          </h2>
-          <p
-            style={{
-              color: "var(--color-orange)",
-              fontSize: "1rem",
-              fontWeight: 600,
-              marginBottom: "20px",
-            }}
-          >
-            {project.subtitle}
-          </p>
+        <div style={{ padding: "32px", maxHeight: "42vh", overflowY: "auto" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: "16px", marginBottom: "8px" }}>
+            <div>
+              <h2
+                id="modal-title"
+                style={{
+                  fontSize: "clamp(1.5rem, 2.5vw, 2.1rem)",
+                  marginBottom: "4px",
+                }}
+              >
+                {project.title}
+              </h2>
+              <p
+                style={{
+                  color: "var(--color-orange)",
+                  fontSize: "1rem",
+                  fontWeight: 600,
+                  marginBottom: "16px",
+                }}
+              >
+                {project.subtitle}
+              </p>
+            </div>
+
+            <a
+              href={`https://www.youtube.com/watch?v=${project.youtubeId}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn btn-secondary btn-sm"
+              style={{ display: "inline-flex", gap: "6px" }}
+            >
+              Apri su YouTube
+              <ExternalLink size={14} />
+            </a>
+          </div>
 
           <p
             style={{
               color: "#c4c4cc",
               fontSize: "0.95rem",
               lineHeight: "1.7",
-              marginBottom: "28px",
+              marginBottom: "24px",
             }}
           >
             {project.synopsis}
@@ -367,7 +282,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div>
             <h4
               style={{
-                fontSize: "0.95rem",
+                fontSize: "0.9rem",
                 color: "var(--text-white)",
                 marginBottom: "12px",
                 textTransform: "uppercase",

@@ -18,6 +18,7 @@ export default function Footer() {
         borderTop: "1px solid var(--border-subtle)",
         position: "relative",
         paddingTop: "80px",
+        zIndex: 2,
       }}
     >
       <div className="container">
@@ -34,12 +35,13 @@ export default function Footer() {
         >
           {/* Col 1: Brand & Slogan */}
           <div>
-            <div style={{ position: "relative", width: "140px", height: "45px", marginBottom: "20px" }}>
+            <div style={{ position: "relative", width: "165px", height: "55px", marginBottom: "20px" }}>
               <Image
-                src="/images/logo.png"
+                src="/images/logo_official.webp"
                 alt="Goreela Videomaking Studio"
                 fill
                 style={{ objectFit: "contain", objectPosition: "left" }}
+                draggable={false}
               />
             </div>
             <p
@@ -52,7 +54,7 @@ export default function Footer() {
               }}
             >
               The wildest storytellers. Casa di produzione video e studio di posa da 170mq a Sarzana.
-              Realizziamo spot commerciali, videoclip e contenuti corporate in tutta Italia.
+              Spot commerciali, videoclip musicali e corporate video per brand che non amano passare inosservati.
             </p>
 
             {/* Social Icons Bar */}

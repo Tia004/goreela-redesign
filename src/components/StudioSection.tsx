@@ -8,7 +8,6 @@ import {
   Monitor,
   Coffee,
   CheckCircle2,
-  Sliders,
   Sparkles,
   MapPin,
 } from "lucide-react";
@@ -22,15 +21,15 @@ export default function StudioSection() {
       title: "Shooting Stage & Limbo",
       label: "Sala Posa Cinematografica",
       description:
-        "Sala posa attrezzata e climatizzata, ideale per interviste, spot, still life commerciali e videoclip musicali. Dispone di un set completo di luci professionali cinema ad alto CRI (Aputure e Nanlite), fondali motorizzati Colorama in molteplici colorazioni e vasta gamma di oggetti di scena. Il cuore operativo per le riprese ad alta precisione.",
+        "Sala posa climatizzata ed attrezzata perfetta per interviste, spot, still life e videoclip musicali. Oltre ad un set di luci professionali cinema (Aputure e Nanlite), sono disponibili una vasta quantità di fondali Colorama e oggetti di scena. Il luogo ideale per dare vita a qualsiasi visione.",
       image: "/images/studio/shooting-stage.webp",
       icon: Camera,
       specs: [
         "Limbo ciclorama bianco e fondali Colorama intercambiabili",
-        "Parco luci cinema: Aputure 600d Pro, 300x, Nanlite Pavotube RGBWW",
-        "Climatizzazione autonoma silenziosa certificata per riprese audio",
-        "C-Stand Matthews, stativi pesanti, bandiere e diffusori 8x8",
-        "Connessione in fibra FTTH 1Gbps simmetrica per live streaming",
+        "Set luci cinema: Aputure 600d Pro, 300x, Nanlite Pavotube RGBWW",
+        "Climatizzazione autonoma e insonorizzazione per presa diretta audio",
+        "C-Stand Matthews, bandiere, sagomatori e diffusori 8x8",
+        "Fibra FTTH 1Gbps simmetrica per live streaming professionale",
       ],
       area: "85 mq",
     },
@@ -39,14 +38,14 @@ export default function StudioSection() {
       title: "Meet Up Room",
       label: "Spazio Progettazione & Briefing",
       description:
-        "Un ampio spazio dedicato ad accogliere clienti, agenzie e registi. Qui ci incontriamo per conoscerti, visionare lo showreel sul maxischermo calibrato, discutere lo storyboard e pianificare la produzione nei minimi particolari prima di entrare sul set.",
+        "Un ampio spazio dove conoscerci, scoprire i nostri lavori e progettare insieme la tua produzione video. Qui ci sediamo attorno al grande tavolo per condividere lo storyboard, gustare un buon caffè e definire ogni singola inquadratura prima di accendere i riflettori.",
       image: "/images/studio/meetup-room.webp",
       icon: Building2,
       specs: [
-        "Tavolo meeting in legno massello per 10 postazioni",
+        "Tavolo meeting in legno per 10 postazioni di lavoro",
         "Schermo 4K 75 pollici calibrato per anteprime registiche",
         "Impianto audio surround per ascolto anteprima brani e spot",
-        "Libreria props, texture e campionari scenografici",
+        "Libreria props, campionari e archivio moodboard visive",
         "Spazio riservato per video-call con agenzie e clienti remoti",
       ],
       area: "35 mq",
@@ -56,15 +55,15 @@ export default function StudioSection() {
       title: "Editing Rooftop",
       label: "Suite Post-Produzione & Color",
       description:
-        "Un piano sopraelevato che ospita 6 postazioni dedicate al montaggio video, visual effects e color grading professionale. Qui le riprese prendono forma definitiva grazie a macchine ad altissime prestazioni, monitor di riferimento Flanders Scientific e console di gradazione DaVinci Resolve.",
+        "Un piano sopraelevato che ospita 6 postazioni di post produzione video. Qui avviene la fase finale della realizzazione: montaggio serrato, sound design immersivo e color grading su monitor calibrati Flanders Scientific con DaVinci Resolve Studio.",
       image: "/images/studio/editing-rooftop.webp",
       icon: Monitor,
       specs: [
-        "6 Postazioni Apple Mac Studio M2 Ultra con storage NVMe RAID",
+        "6 Postazioni Apple Mac Studio con storage NVMe ultra-veloce",
         "Monitor Flanders Scientific 10-bit certificati DCI-P3 / Rec.709",
         "Console hardware DaVinci Resolve Mini Panel",
-        "Ambiente ad illuminazione controllata D65 per colorimetria esatta",
-        "Server NAS 10GbE centralizzato per editing simultaneo in team",
+        "Ambiente calibrato D65 per conformità cromatica assoluta",
+        "Server NAS 10GbE ridondato per montaggio collaborativo",
       ],
       area: "30 mq",
     },
@@ -73,14 +72,14 @@ export default function StudioSection() {
       title: "Chill-out Cave",
       label: "Area Relax & Brainstorming",
       description:
-        "Un ambiente confortevole progettato per staccare la mente tra una sessione di ripresa e l'altra. Dotato di coffee corner con macchina espresso professionale, divani e vinili musicali. Il luogo ideale dove nascono le intuizioni creative più audaci.",
+        "Non è solo una sala relax con caffè, bibite e cibo, ma anche una stanza attrezzata per live-streaming e brainstorming. Qui cerchiamo qualche minuto di pace tra una produzione video e l'altra, ascoltiamo vinili e facciamo nascere le idee più audaci.",
       image: "/images/studio/chill-cave.webp",
       icon: Coffee,
       specs: [
-        "Zona lounge con divani e postazione trucco/camerino attori",
-        "Espresso bar artigianale e frigobar a disposizione della troupe",
-        "Impianto hi-fi analogico per ascolto dischi in vinile",
-        "Ambiente insonorizzato e rilassante per pause sul set",
+        "Zona lounge con divani, postazione trucco e camerino",
+        "Espresso bar artigianale e snack sempre a disposizione del set",
+        "Impianto analogico con collezione di vinili d'epoca",
+        "Ambiente insonorizzato per pause rigeneranti durante gli shooting",
       ],
       area: "20 mq",
     },
@@ -105,11 +104,11 @@ export default function StudioSection() {
             Hub Produttivo &bull; Sarzana (SP)
           </div>
           <h2 className="section-title">
-            LO STUDIO. <span className="highlight">170mq progettati</span> per la produzione video.
+            LO STUDIO. <span className="highlight">170mq adatti</span> ad ogni produzione video.
           </h2>
           <p className="section-subtitle" style={{ margin: "0 auto" }}>
-            Uno spazio modulare studiato nei dettagli per ospitare troupe cinematografiche,
-            clienti e agenzie. Dalla sala posa con limbo alle suite di montaggio.
+            Quattro ambienti progettati da videomaker per i videomaker e per i loro clienti.
+            Tutto ciò che serve, dalla sala posa con limbo alle postazioni di post-produzione.
           </p>
         </div>
 
@@ -184,6 +183,7 @@ export default function StudioSection() {
               alt={current.title}
               fill
               style={{ objectFit: "cover" }}
+              draggable={false}
               priority
             />
             <div
@@ -317,7 +317,7 @@ export default function StudioSection() {
                 Via B. Partigiana U. Muccini 18, Sarzana (SP)
               </div>
               <a href="#contatti" className="btn btn-secondary btn-sm">
-                Prenota una Visita
+                Prenota lo Studio
               </a>
             </div>
           </div>

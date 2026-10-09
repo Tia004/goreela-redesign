@@ -6,73 +6,61 @@ import {
   Film,
   Camera,
   Sliders,
-  Headphones,
   Sparkles,
-  Layers,
   Award,
 } from "lucide-react";
 
 export default function TeamSection() {
   const teamMembers = [
     {
-      name: "Edoardo",
-      role: "Founder & Regista",
-      subrole: "Creative Direction & Storytelling",
-      image: "/images/team/edoardo.webp",
-      bio: "Fondatore di Goreela Videomaking Studio. Guida la visione creativa e registica di ogni progetto, trasformando brief aziendali ed emozioni musicali in narrazioni visive audaci e memorabili.",
-      gear: "Director's Viewfinder &bull; RED & Sony CineAlta",
-      icon: Film,
-      credits: "Highsnob, Without FW, Spezia Calcio",
-    },
-    {
-      name: "Marco",
-      role: "Direttore della Fotografia (DoP)",
-      subrole: "Lighting Design & Camera Operator",
-      image: "/images/projects/highsnob-kintsugi.webp",
-      bio: "Maestro della luce e della composizione scenica. Plasma l'atmosfera visiva sul set combinando ottiche vintage anamorfiche e moderni corpi macchina ad altissima gamma dinamica.",
-      gear: "Atlas Orion Anamorphic &bull; Aputure 600d Pro",
+      name: "Giacomo Czerny",
+      role: "D.O.P. & Operatore Video",
+      subrole: "Direttore della Fotografia & Video Editor",
+      image: "/images/team/giacomo-czerny.jpg",
+      bio: "Cura la fotografia della produzione video, gestendo tutti i dettagli di ogni singola inquadratura con precisione millimetrica. Plasma la luce e le ombre per dare ad ogni scena un'impronta cinematografica inconfondibile.",
+      gear: "Sony FX9 CineAlta &bull; Atlas Orion Anamorphic",
       icon: Camera,
-      credits: "Samuel Costa, Italcaffè 1969, Cantine Lunae",
+      credits: "Highsnob Kintsugi, Samuel Costa",
     },
     {
-      name: "Andrea",
-      role: "Lead Video Editor & Colorist",
-      subrole: "Post-Production Supervisor",
-      image: "/images/studio/editing-rooftop.webp",
-      bio: "Responsabile del ritmo narrativo e dell'armonia cromatica. Certificato DaVinci Resolve Studio, conferisce a ogni inquadratura una gradazione cinema coerente con la visione registica.",
-      gear: "DaVinci Mini Panel &bull; Flanders 10-bit",
+      name: "Giorgio Innocenti",
+      role: "Lead Editor & Motion Designer",
+      subrole: "Operatore Video & VFX Artist",
+      image: "/images/team/giorgio-innocenti.jpg",
+      bio: "Gestisce in prima persona il montaggio video, gli effetti speciali e le animazioni 2D e 3D. È il regista e montatore dello Showreel 2024 di Goreela e dei video moda internazionali.",
+      gear: "DaVinci Resolve Studio &bull; After Effects &bull; Cinema 4D",
       icon: Sliders,
-      credits: "Essentiae Lunae, Irene Effe, 9T Labs",
+      credits: "Showreel Ufficiale, Milan & Paris FW SS24",
     },
     {
-      name: "Chiara",
-      role: "Executive Producer",
-      subrole: "Project Manager & Line Producer",
-      image: "/images/studio/meetup-room.webp",
-      bio: "La mente organizzativa dietro ogni set. Gestisce casting, location scouting, permessi comunali, cronoprogrammi di shooting e garantisce il rispetto millimetrico dei tempi di consegna.",
-      gear: "Produzione Esecutiva &bull; Budgeting & Casting",
+      name: "Rocco Malfanti",
+      role: "Regista & Storyboarder",
+      subrole: "Creative Direction & Operatore Video",
+      image: "/images/team/rocco-malfanti.jpg",
+      bio: "Ha sempre l'idea più fresca e funzionale per raccontare il prodotto o il servizio del cliente. Sul set dirige il team e gli attori per portare a casa tutto il materiale necessario senza lasciare nulla al caso.",
+      gear: "Regia Cinematografica &bull; Storyboard & Script",
+      icon: Film,
+      credits: "Italcaffè 1969, Essentiae Lunae",
+    },
+    {
+      name: "Luca Pompei",
+      role: "Executive Producer & Colorist",
+      subrole: "Organizzazione Set & Operatore Video",
+      image: "/images/team/luca-pompei.webp",
+      bio: "Trova location, attori e comparse. Gestisce il rapporto tra il team di editor ed il cliente, garantendo sempre consegne puntuali entro le deadline stabilite con massima trasparenza.",
+      gear: "Produzione Esecutiva &bull; Location Scouting & Casting",
       icon: Award,
-      credits: "Milan Fashion Week, Corporate 9T Labs",
+      credits: "9T Labs Switzerland, Spezia Calcio",
     },
     {
-      name: "Luca",
-      role: "Sound Designer & Fonico",
-      subrole: "Audio Recordist & Mastering 5.1",
-      image: "/images/projects/italcaffe.webp",
-      bio: "Il suono è il 50% dell'esperienza cinematografica. Cattura dialoghi cristallini sul set in 32-bit float e costruisce ambienti sonori immersivi capaci di amplificare ogni emozione visiva.",
-      gear: "Sound Devices 833 &bull; Schoeps CMC6 &bull; Pro Tools",
-      icon: Headphones,
-      credits: "Commercial TV, Soundtracks Spot, Podcast",
-    },
-    {
-      name: "Matteo",
-      role: "Motion Designer & 3D Artist",
-      subrole: "VFX & Compositing Lead",
-      image: "/images/projects/fashion-week.webp",
-      bio: "Dà vita a loghi animati, visualizzazioni tridimensionali fotorealistiche per spot industriali ed effetti visivi integrati in post-produzione per brand contemporanei.",
-      gear: "Cinema 4D &bull; After Effects &bull; Unreal Engine",
-      icon: Layers,
-      credits: "9T Labs 3D Composites, Title Sequences",
+      name: "Edoardo Vanoli",
+      role: "Ass. Operatore & Jr. Video Editor",
+      subrole: "DIT & Preparazione Progetti",
+      image: "/images/team/edoardo.webp",
+      bio: "Aiuta l'operatore video a portare a casa le riprese più complesse, mentre in studio si occupa di avviare tutti i progetti di montaggio, ingest RAW e sincronizzazione audio multitraccia.",
+      gear: "Camera Rig Setup &bull; Gimbal Ronin &bull; Ingest RAW",
+      icon: Sparkles,
+      credits: "Irene Effe, Spot Commerciali Social",
     },
   ];
 
@@ -90,14 +78,14 @@ export default function TeamSection() {
         <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 60px" }}>
           <div className="section-badge">
             <Users size={14} />
-            La Nostra Troupe &bull; Competenze Dedicate
+            La Nostra Troupe &bull; Goreela Crew
           </div>
           <h2 className="section-title">
             Un professionista per ogni <span className="highlight">ruolo della produzione</span>.
           </h2>
           <p className="section-subtitle" style={{ margin: "0 auto" }}>
-            Crediamo nel talento verticale. Dalla regia al sound design, un team coeso
-            di specialisti al servizio della tua visione.
+            Crediamo nel talento verticale. Zero improvvisazione: ogni membro del team ha una
+            specializzazione precisa per garantire la massima qualità in ogni reparto.
           </p>
         </div>
 
@@ -105,7 +93,7 @@ export default function TeamSection() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(360px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
             gap: "28px",
           }}
           className="team-grid"
@@ -131,7 +119,7 @@ export default function TeamSection() {
                   style={{
                     position: "relative",
                     width: "100%",
-                    height: "220px",
+                    height: "260px",
                     backgroundColor: "var(--bg-black)",
                   }}
                 >
@@ -141,9 +129,10 @@ export default function TeamSection() {
                     fill
                     style={{
                       objectFit: "cover",
-                      objectPosition: "center 25%",
-                      filter: "brightness(0.9) contrast(1.05)",
+                      objectPosition: "center 20%",
+                      filter: "brightness(0.92) contrast(1.05)",
                     }}
+                    draggable={false}
                   />
                   <div
                     style={{
@@ -160,10 +149,10 @@ export default function TeamSection() {
                       position: "absolute",
                       top: "16px",
                       right: "16px",
-                      width: "36px",
-                      height: "36px",
+                      width: "38px",
+                      height: "38px",
                       borderRadius: "8px",
-                      backgroundColor: "rgba(12, 12, 14, 0.8)",
+                      backgroundColor: "rgba(12, 12, 14, 0.85)",
                       backdropFilter: "blur(8px)",
                       border: "1px solid var(--border-subtle)",
                       display: "flex",
@@ -214,7 +203,7 @@ export default function TeamSection() {
                     style={{
                       fontSize: "0.92rem",
                       color: "#c4c4cc",
-                      lineHeight: "1.6",
+                      lineHeight: "1.65",
                       marginBottom: "20px",
                       flexGrow: 1,
                     }}
@@ -230,7 +219,7 @@ export default function TeamSection() {
                       display: "flex",
                       flexDirection: "column",
                       gap: "6px",
-                      fontSize: "0.8rem",
+                      fontSize: "0.82rem",
                     }}
                   >
                     <div style={{ color: "var(--text-white)" }}>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Play, Sparkles, Film, ArrowDown, Camera, Layers, CheckCircle } from "lucide-react";
+import { Play, Sparkles, Film, Camera, Layers, CheckCircle } from "lucide-react";
 
 interface HeroProps {
   onOpenReel: () => void;
@@ -21,37 +21,12 @@ export default function Hero({ onOpenReel }: HeroProps) {
         overflow: "hidden",
       }}
     >
-      {/* Cinematic Ambient Glow Orbs */}
-      <div
-        className="glow-ambient"
-        style={{
-          width: "500px",
-          height: "500px",
-          background: "radial-gradient(circle, var(--color-orange-glow) 0%, transparent 70%)",
-          top: "10%",
-          left: "50%",
-          transform: "translateX(-50%)",
-          zIndex: 0,
-        }}
-      />
-      <div
-        className="glow-ambient"
-        style={{
-          width: "400px",
-          height: "400px",
-          background: "radial-gradient(circle, rgba(255, 85, 5, 0.15) 0%, transparent 70%)",
-          bottom: "10%",
-          right: "5%",
-          zIndex: 0,
-        }}
-      />
-
-      <div className="container" style={{ position: "relative", zIndex: 1 }}>
+      <div className="container" style={{ position: "relative", zIndex: 2 }}>
         <div style={{ maxWidth: "980px", margin: "0 auto", textAlign: "center" }}>
           {/* Studio Badge */}
           <div className="section-badge" style={{ margin: "0 auto 24px" }}>
             <Sparkles size={14} />
-            Videomaking Studio &bull; Sarzana &bull; Attivi in tutta Italia
+            The Wildest Storytellers &bull; Sarzana &bull; In tutta Italia
           </div>
 
           {/* Main Hero Headline */}
@@ -69,19 +44,19 @@ export default function Hero({ onOpenReel }: HeroProps) {
             <span className="highlight">Produzioni video</span> che lasciano il segno.
           </h1>
 
-          {/* Subtitle */}
+          {/* Subtitle with authentic Goreela humor */}
           <p
             style={{
               fontSize: "clamp(1.05rem, 1.4vw, 1.25rem)",
               color: "var(--color-gray-subtle)",
-              maxWidth: "760px",
+              maxWidth: "780px",
               margin: "0 auto 36px",
-              lineHeight: 1.6,
+              lineHeight: "1.65",
             }}
           >
-            Diamo vita a spot pubblicitari, videoclip musicali e corporate video
-            dall&apos;impatto cinematografico. Dallo storyboard al color grading
-            master in 170mq di studio attrezzato.
+            Niente presentazioni noiose da 80 pagine: il metodo più efficace per raccontarsi
+            è una produzione video. Spot, videoclip e contenuti corporate con estetica cinematografica
+            e zero compromessi.
           </p>
 
           {/* Action CTAs */}
@@ -101,7 +76,7 @@ export default function Hero({ onOpenReel }: HeroProps) {
               style={{ padding: "16px 32px" }}
             >
               <Play size={18} fill="currentColor" />
-              Guarda lo Showreel 2026
+              Guarda lo Showreel Ufficiale
             </button>
             <a
               href="#lavori"
@@ -109,7 +84,7 @@ export default function Hero({ onOpenReel }: HeroProps) {
               style={{ padding: "16px 28px" }}
             >
               <Film size={18} />
-              Esplora i Lavori
+              Esplora i Nostri Lavori
             </a>
           </div>
         </div>
@@ -123,7 +98,7 @@ export default function Hero({ onOpenReel }: HeroProps) {
             borderRadius: "16px",
             overflow: "hidden",
             border: "1px solid var(--border-card)",
-            boxShadow: "0 24px 60px rgba(0, 0, 0, 0.7)",
+            boxShadow: "0 24px 60px rgba(0, 0, 0, 0.8)",
             background: "var(--bg-surface)",
           }}
         >
@@ -132,39 +107,40 @@ export default function Hero({ onOpenReel }: HeroProps) {
               position: "relative",
               width: "100%",
               aspectRatio: "21 / 9",
-              minHeight: "260px",
+              minHeight: "280px",
             }}
           >
             <Image
               src="/images/projects/highsnob-kintsugi.webp"
-              alt="Goreela Showreel Teaser Frame"
+              alt="Goreela Showreel 2024 Teaser"
               fill
               style={{ objectFit: "cover", objectPosition: "center" }}
+              draggable={false}
               priority
             />
-            {/* Dark Vignette & Gradient Overlay */}
+            {/* Dark Vignette Overlay */}
             <div
               style={{
                 position: "absolute",
                 inset: 0,
                 background:
-                  "linear-gradient(180deg, rgba(12,12,14,0.3) 0%, rgba(12,12,14,0.7) 100%)",
+                  "linear-gradient(180deg, rgba(12,12,14,0.2) 0%, rgba(12,12,14,0.85) 100%)",
               }}
             />
 
             {/* Floating Play Trigger */}
             <button
               onClick={onOpenReel}
-              aria-label="Riproduci reel a schermo intero"
+              aria-label="Riproduci lo Showreel 2024"
               style={{
                 position: "absolute",
                 top: "50%",
                 left: "50%",
                 transform: "translate(-50%, -50%)",
-                width: "80px",
-                height: "80px",
+                width: "84px",
+                height: "84px",
                 borderRadius: "50%",
-                background: "rgba(255, 85, 5, 0.9)",
+                background: "rgba(255, 85, 5, 0.95)",
                 backdropFilter: "blur(8px)",
                 display: "flex",
                 alignItems: "center",
@@ -172,10 +148,11 @@ export default function Hero({ onOpenReel }: HeroProps) {
                 color: "#ffffff",
                 boxShadow: "0 0 35px var(--color-orange-glow)",
                 transition: "var(--transition-smooth)",
+                cursor: "pointer",
               }}
               className="play-pulse-btn"
             >
-              <Play size={32} fill="#ffffff" style={{ marginLeft: "4px" }} />
+              <Play size={34} fill="#ffffff" style={{ marginLeft: "4px" }} />
             </button>
 
             {/* Badges on bottom of frame */}
@@ -197,7 +174,7 @@ export default function Hero({ onOpenReel }: HeroProps) {
                   display: "flex",
                   alignItems: "center",
                   gap: "8px",
-                  background: "rgba(12, 12, 14, 0.75)",
+                  background: "rgba(12, 12, 14, 0.85)",
                   backdropFilter: "blur(12px)",
                   padding: "6px 14px",
                   borderRadius: "6px",
@@ -207,7 +184,7 @@ export default function Hero({ onOpenReel }: HeroProps) {
                 }}
               >
                 <Camera size={15} color="var(--color-orange)" />
-                RED &bull; ARRI Cinema RAW &bull; DaVinci Resolve
+                SHOWREEL 2024 &bull; In 16:9, perché abbiamo fatto troppe cose in verticale!
               </div>
 
               <div
@@ -215,7 +192,7 @@ export default function Hero({ onOpenReel }: HeroProps) {
                   display: "flex",
                   alignItems: "center",
                   gap: "6px",
-                  background: "rgba(12, 12, 14, 0.75)",
+                  background: "rgba(12, 12, 14, 0.85)",
                   backdropFilter: "blur(12px)",
                   padding: "6px 14px",
                   borderRadius: "6px",
@@ -232,7 +209,7 @@ export default function Hero({ onOpenReel }: HeroProps) {
           </div>
         </div>
 
-        {/* Live Metrics Grid (I nostri numeri - fedeli a goreela.it) */}
+        {/* Live Metrics Grid */}
         <div
           style={{
             display: "grid",
@@ -244,9 +221,9 @@ export default function Hero({ onOpenReel }: HeroProps) {
         >
           {[
             { number: "150+", label: "Produzioni Video", sub: "Commercial, videoclip e branded" },
-            { number: "170mq", label: "Studio di Posa", sub: "Limbo ciclorama e postazioni post" },
-            { number: "4K / 6K", label: "Cinema RAW", sub: "Workflow nativo ad altissima gamma" },
-            { number: "100%", label: "In-House Creative", sub: "Dal concept alla master delivery" },
+            { number: "170mq", label: "Studio di Posa a Sarzana", sub: "Limbo ciclorama e postazioni post" },
+            { number: "4K / 6K", label: "Cinema RAW", sub: "Sensori Full-Frame & ottiche cinema" },
+            { number: "100%", label: "In-House Creative", sub: "Zero intermediari, solo registi e artigiani" },
           ].map((stat, i) => (
             <div
               key={i}

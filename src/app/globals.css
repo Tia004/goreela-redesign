@@ -63,6 +63,14 @@ body {
   line-height: 1.6;
 }
 
+/* Anti-drag rule for all media */
+img, video, iframe, canvas, picture, [data-draggable="false"] {
+  -webkit-user-drag: none !important;
+  user-drag: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
 /* Subtle Film Grain Noise Texture */
 body::before {
   content: "";
@@ -72,7 +80,7 @@ body::before {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 999;
+  z-index: 1;
   opacity: 0.025;
   background-image: radial-gradient(rgba(255, 255, 255, 0.15) 1px, transparent 0);
   background-size: 4px 4px;
@@ -150,6 +158,8 @@ input, textarea, select {
   max-width: var(--container-max);
   margin: 0 auto;
   padding: 0 24px;
+  position: relative;
+  z-index: 2;
 }
 
 /* Section Header Styles */
@@ -269,21 +279,6 @@ input, textarea, select {
 
 .marquee-container:hover .marquee-track {
   animation-play-state: paused;
-}
-
-/* Animations & Reduced Motion */
-@keyframes pulseGlow {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 0.8; transform: scale(1.05); }
-}
-
-.glow-ambient {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(100px);
-  pointer-events: none;
-  z-index: 0;
-  animation: pulseGlow 10s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

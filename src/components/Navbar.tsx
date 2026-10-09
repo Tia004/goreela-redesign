@@ -54,10 +54,10 @@ export default function Navbar({ isMuted, onToggleSound }: NavbarProps) {
         height: "var(--header-height)",
         zIndex: 1000,
         backgroundColor: isScrolled
-          ? "rgba(12, 12, 14, 0.92)"
-          : "rgba(12, 12, 14, 0.4)",
-        backdropFilter: "blur(16px)",
-        WebkitBackdropFilter: "blur(16px)",
+          ? "rgba(12, 12, 14, 0.94)"
+          : "rgba(12, 12, 14, 0.5)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
         borderBottom: isScrolled
           ? "1px solid var(--border-subtle)"
           : "1px solid transparent",
@@ -73,7 +73,7 @@ export default function Navbar({ isMuted, onToggleSound }: NavbarProps) {
           justifyContent: "space-between",
         }}
       >
-        {/* Brand Logo */}
+        {/* Official Brand Logo */}
         <Link
           href="/"
           style={{
@@ -84,31 +84,16 @@ export default function Navbar({ isMuted, onToggleSound }: NavbarProps) {
           }}
           aria-label="Goreela Videomaking Studio Home"
         >
-          <div style={{ position: "relative", width: "135px", height: "42px" }}>
+          <div style={{ position: "relative", width: "160px", height: "55px" }}>
             <Image
-              src="/images/logo.png"
+              src="/images/logo_official.webp"
               alt="Goreela Videomaking Studio"
               fill
               style={{ objectFit: "contain", objectPosition: "left" }}
+              draggable={false}
               priority
             />
           </div>
-          <span
-            style={{
-              display: "none",
-              fontSize: "0.75rem",
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              padding: "4px 8px",
-              background: "var(--color-orange-subtle)",
-              color: "var(--color-orange)",
-              borderRadius: "4px",
-              border: "1px solid var(--color-orange-border)",
-            }}
-          >
-            Studio
-          </span>
         </Link>
 
         {/* Desktop Navigation Links */}
@@ -172,6 +157,7 @@ export default function Navbar({ isMuted, onToggleSound }: NavbarProps) {
               border: `1px solid ${isMuted ? "var(--border-card)" : "var(--color-orange-border)"}`,
               color: isMuted ? "var(--color-gray-subtle)" : "var(--color-orange)",
               transition: "var(--transition-smooth)",
+              cursor: "pointer",
             }}
           >
             {isMuted ? <VolumeX size={18} /> : <Volume2 size={18} />}
@@ -201,6 +187,7 @@ export default function Navbar({ isMuted, onToggleSound }: NavbarProps) {
               background: "var(--bg-card)",
               border: "1px solid var(--border-card)",
               color: "var(--text-white)",
+              cursor: "pointer",
             }}
             className="mobile-toggle"
           >
